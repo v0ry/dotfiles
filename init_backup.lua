@@ -13,12 +13,24 @@ vim.opt.autowriteall = true   -- write current buffer when moving buffers
 vim.opt.wrap         = true   -- wrap long lines
 vim.opt.linebreak    = true   -- break lines at words
 
-vim.keymap.set('', '<Space>', '<NOP>')
-vim.g.mapleader = " "  -- set global leader key
+-- Mapping the <Space> key to do nothing in normal mode
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 
-if vim.fn.has('termguicolors') == 1 then
-  vim.opt.termguicolors = true
-end
+-- Setting the mapleader to the <Space> key
+vim.g.mapleader = ' '
+
+vim.g.UltiSnipsSnippetDirectories = { vim.fn.expand("$HOME") .. '/.config/nvim/UltiSnips' }
+vim.g.UltiSnipsExpandTrigger       = '<Tab>'  
+vim.g.UltiSnipsJumpForwardTrigger  = '<Tab>'  
+vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
+-- For Neovim File explorer Tree
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
 
 -- OS detection
 if vim.fn.exists("g:os_current") == 0 then
@@ -75,7 +87,7 @@ Plug 'lervag/vimtex'
 Plug 'nathangrigg/vim-beancount'
 Plug 'habamax/vim-rst'
 
--- LSP-like
+-- LSP-likvim.cmd('filetype plugin indent on')
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.0'})
@@ -99,14 +111,20 @@ Plug 'hrsh7th/cmp-cmdline'-- required for ultisnip
 Plug  'hrsh7th/nvim-cmp' -- required for ultisnip 
 Plug  'dcampos/nvim-snippy' -- neovim snippets
 Plug 'quangnguyen30192/cmp-nvim-ultisnips' --cmp for ultisnips
-
-
+Plug 'github/copilot.vim' 
+Plug 'nvim-tree/nvim-web-devicons' 
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'antosha417/nvim-lsp-file-operations'
+Plug 'echasnovski/mini.base16'
 
 vim.call('plug#end')
 -- --------------------------------------------- --
 -- End loading plugin
 
+-- Vim cmd
 vim.cmd('colorscheme nord')
+vim.cmd [[filetype plugin on]]
+
 
 -- Personal configuration
 require('personal/init/copy-paste')
@@ -229,3 +247,6 @@ autocmd User targets#mappings#user call targets#mappings#extend({
 
 vim.keymap.set('', '<Leader>hc', '<Cmd>HighlightColorsToggle<CR>')
 -- END MISCELLANEOUS
+
+-- Other 
+
