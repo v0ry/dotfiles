@@ -1,0 +1,48 @@
+priority 1
+snippet -- "Commented line with a bunch of dashes ----------------- " bA
+# --------------------------------------------- #
+endsnippet
+
+snippet "(^|[\W])'"  "single quotation marks" rA
+`!p snip.rv = match.group(1)`'${1:${VISUAL:}}'$0
+endsnippet
+
+snippet "(^|[\W])\""  "double quotation marks" rA
+`!p snip.rv = match.group(1)`"${1:${VISUAL:}}"$0
+endsnippet
+
+snippet ff "New function definition" bA
+function ${1:name}() {
+	$0
+}
+endsnippet
+
+snippet if "if statement" bA
+if [[ $1 ]]; then
+	$0
+fi
+endsnippet
+
+snippet elif "elif statement" bA
+elif [ $1 ]; then
+	$0
+endsnippet
+
+snippet for "for loop" bA
+for $1 in $2; do
+	$0
+done
+endsnippet
+
+snippet !! "shebang" bA
+#!/bin/${1:sh}
+$0
+endsnippet
+
+snippet doc "Documentation template" bA
+# NAME
+# 		$1 - ${2:description}
+# 
+# SYNOPSIS
+# 		$1 ${3:usage}
+endsnippet

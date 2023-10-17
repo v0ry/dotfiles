@@ -1,0 +1,80 @@
+snippet ;a "BibTeX author field" bA
+author = {$1},$0
+endsnippet
+
+snippet ;t "BibTeX title field" bA
+title = {$1},$0
+endsnippet
+
+snippet ;v "BibTeX volume field (for journals)" bA
+volume = {$1},$0
+endsnippet
+
+snippet ;n "BibTeX number field (for journals)" bA
+number = {$1},$0
+endsnippet
+
+snippet ;p "BibTeX pages field" bA
+pages = {$1},$0
+endsnippet
+
+snippet ;y "BibTeX year field" bA
+year = {$1},$0
+endsnippet
+
+snippet ;u "BibTeX URL field" bA
+url = {$1},$0
+endsnippet
+
+snippet ;d "BibTeX DOI field" bA
+doi = {$1},$0
+endsnippet
+
+snippet ;j "BibTeX journal field" bA
+journal = {$1},$0
+endsnippet
+
+snippet nn "New generic BibTeX entry" bA
+@${1:type}{${2:key},
+	$0
+}
+endsnippet
+
+snippet art "New BibTeX article entry" bA
+@article{${1:key},
+	author  = {$2},
+	title   = {$3},
+	journal = {$4},
+	year    = {$5},
+}
+endsnippet
+
+snippet book "New BibTeX book entry" bA
+@book{${1:key},
+	author    = {$2},
+	title     = {$3},
+	publisher = {$4},
+	year      = {$5},
+}
+endsnippet
+
+snippet misc "New BibTeX misc entry" bA
+@misc{${1:key},
+	author       = {$2},
+	title        = {$3},
+	howpublished = {$4},
+	year         = {$5},
+}
+endsnippet
+
+snippet web "New BibTeX misc entry for websites" bA
+@misc{${1:key},
+	author       = {$2},
+	title        = {$3},
+	howpublished = {\url{$4}},
+	year         = {$5},
+	note         = {Accessed: $6},
+}
+endsnippet
+
+

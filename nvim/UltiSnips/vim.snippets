@@ -1,0 +1,22 @@
+snippet -- "Commented line with a bunch of dashes ----------------- " bA
+" --------------------------------------------- "
+endsnippet
+
+snippet lua "Lua in a Vimscript file" bA
+lua << EOF
+$0
+EOF
+endsnippet
+
+
+priority 1
+snippet " "Quotation mark" iA
+"
+endsnippet
+
+
+# priority 1
+# # expands " into " " everywhere except on a new line to avoid clash with Vim comments
+# snippet "(.)\"" "paired quotation marks" rA
+# `!p snip.rv = match.group(1)`"${1:${VISUAL:}}"$0
+# endsnippet

@@ -1,0 +1,423 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+priority 2
+# BEGIN SUPERSCRIPTS AND SUBSCRIPTS
+# ------------------------------------------------ #
+context "math()"
+snippet "([\w]|[\}\)\]\|'])'" "Superscript" rA
+`!p snip.rv = match.group(1)`^{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([a-zA-Z]|[\}\)\]\|']);" "Subscript" rA
+`!p snip.rv = match.group(1)`_{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([a-zA-Z]|[\}\)\]\|'])__" "Subscript and superscript" rA
+`!p snip.rv = match.group(1)`_{${1:${VISUAL:}}}^{$2}$0
+endsnippet
+
+context "math()"
+snippet "([\w]|[\}\)\]\|'])sd" "Text subscript" rA
+`!p snip.rv = match.group(1)`_{\mathrm{${1:${VISUAL:}}}}$0
+endsnippet
+
+context "math()"
+snippet "([\w]|[\}\)\]\|'])"([\w]{1})" "Place the first \w character after the quotation mark in a subscript" rA
+`!p snip.rv = match.group(1) + "^{" + match.group(2) + "}"`
+endsnippet
+
+context "math()"
+snippet "([\w]|[\}\)\]\|']):([\w]{1})" "Place the first \w character after the : in a subscript" rA
+`!p snip.rv = match.group(1) + "_{" + match.group(2) + "}"`
+endsnippet
+
+snippet "([a-zA-Z]|[\}\)\]\|'])00" "Automatic 0 subscript" rA
+`!p snip.rv = match.group(1)`_{0}
+endsnippet
+
+context "math()"
+snippet JJ "j subscript (because snippet move forward key is jk)" iA
+_{j}
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z])ee" "e^{} supercript" rA
+`!p snip.rv = match.group(1)`e^{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([\w]|[\}\)\]\|'])([-+]{2})" "Automatic +/- subscript" rA
+`!p snip.rv = match.group(1) + "_{" + match.group(2)[0] + "}"`
+endsnippet
+
+snippet "([\w]|[\}\)\]\|'])\*\*" "Automatic * superscript" rA
+`!p snip.rv = match.group(1)`^{*}
+endsnippet
+
+snippet "([\w]|[\}\)\]\|'])TT" "Automatic transposed superscript" rA
+`!p snip.rv = match.group(1)`^{\top}
+endsnippet
+
+context "math()"
+snippet "([\w]|[\}\)\]\|'])CC" "Automatic complement superscript" rA
+`!p snip.rv = match.group(1)`^{\complement}
+endsnippet
+# ----------------------------------------- #
+# END SUPERSCRIPTS AND SUBSCRIPTS
+
+
+# BEGIN SEMANTIC COMMANDS (vec, tilde, etc...)
+# --------------------------------------------- #
+snippet "(^|[^a-zA-Z])ff" "\frac{}{}" rA
+`!p snip.rv = match.group(1)`\frac{${1:${VISUAL:}}}{$2}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])tf" "\tfrac{}{}" rA
+`!p snip.rv = match.group(1)`\tfrac{${1:${VISUAL:}}}{$2}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])sq" "\sqrt (square root)" rA
+`!p snip.rv = match.group(1)`\sqrt{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])ll" "Logarithm with a base" rA
+`!p snip.rv = match.group(1)`\log_{${1:${VISUAL:}}} $0
+endsnippet
+
+
+snippet "([^a-zA-Z\\])ssq" "\sqrt[n] (n-th root)" rA
+`!p snip.rv = match.group(1)`\sqrt[$1]{${2:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([\W_])vv" "\vec" rA
+`!p snip.rv = match.group(1)`\vec{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([\W_])uv" "Default unit vector with subscript" rA
+`!p snip.rv = match.group(1)`\unitvector_{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([\W_])uV" "\uvec" rA
+`!p snip.rv = match.group(1)`\uvec{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_])mt" "\mat{} (for matrices)" rA
+`!p snip.rv = match.group(1)`\mat{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_])tn" "\tensor{}" rA
+`!p snip.rv = match.group(1)`\tensor{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_])wt" "\widetilde" rA
+`!p snip.rv = match.group(1)`\widetilde{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_\\])hh" "\hat" rA
+`!p snip.rv = match.group(1)`\hat{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_\\])bb" "\bar" rA
+`!p snip.rv = match.group(1)`\bar{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "ss" "Line segment (assumes a user-defined macro)" A
+`!p snip.rv = match.group(1)`\linesegment{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([\W_\\])cc" "Complex conjugate (assumes a user-defined macro)" rA
+`!p snip.rv = match.group(1)`\conjugate{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])d" "\dot" r
+`!p snip.rv = match.group(1)`\dot{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])dd" "\ddot" r
+`!p snip.rv = match.group(1)`\ddot{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])pV" "\pdv{}" rA
+`!p snip.rv = match.group(1)`\pdvOne{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])pvv" "\pdv{}{}" rA
+`!p snip.rv = match.group(1)`\pdv{$1}{$2}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])ppv" "\pdvN{}{}{}" rA
+`!p snip.rv = match.group(1)`\pdvN{$1}{$2}{$3}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])pv3" "\pdvThree{}{}" rA
+`!p snip.rv = match.group(1)`\pdvThree{$1}{$2}{$3}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])dV" "\dvOne{}" rA
+`!p snip.rv = match.group(1)`\dvOne{${1:${VISUAL:}}}$0
+endsnippet
+ 
+snippet "([^a-zA-Z\\])([dD])vv" "\dv{}{} or \Dv{}{}" rA
+`!p snip.rv = match.group(1)`\\`!p snip.rv = match.group(2)`v{$1}{$2}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])ddv" "\dvN[]{}{}" rA
+`!p snip.rv = match.group(1)`\dvN{$1}{$2}{$3}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])aa" "Absolute value" rA
+`!p snip.rv = match.group(1)`\abs{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])ipp" "Inner product" rA
+`!p snip.rv = match.group(1)`\ip{${1:${VISUAL:}}}{$2}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])nrr" "Norm" rA
+`!p snip.rv = match.group(1)`\norm{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])ev" "\ev{}" rA
+`!p snip.rv = match.group(1)`\ev{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z\\])ang" "ang{} (Angle)" rA
+`!p snip.rv = match.group(1)`\ang{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet ann "\annotate{}{} (custom command for annotated stackrel)" A
+\annotate{${1:}}{${2:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+snippet "([\W_\\])srr" "\stackrel{}{}" rA
+`!p snip.rv = match.group(1)`\stackrel{${1:above}}{${2:${VISUAL:below}}}$0
+endsnippet
+
+snippet "([^a-zA-Z\\])bi" "Binomial symbol" r
+`!p snip.rv = match.group(1)`\binom{${1:${VISUAL:}}}{$2}$0
+endsnippet
+
+# --------------------------------------------- #
+# END SEMANTIC COMMANDS (vec, tilde, etc...)
+
+
+# BEGIN INTEGRALS
+# --------------------------------------------- #
+snippet "([^\w\\])intt" "Integral with upper and lower limit" rA
+`!p snip.rv = match.group(1)`\int_{$1}^{$2} $0
+endsnippet
+
+snippet "([^\w\\])innt" "Integral with symmetric upper and lower limit" rA
+`!p snip.rv = match.group(1)`\int_{-$1}^{$1} $0
+endsnippet
+
+snippet "([^\w\\])int3" "\iiint" rA
+`!p snip.rv = match.group(1)`\iiint
+endsnippet
+
+snippet "([^\w\\])int2" "\iint" rA
+`!p snip.rv = match.group(1)`\iint
+endsnippet
+# END INTEGRALS
+# --------------------------------------------- #
+
+
+# BEGIN SUMS
+# --------------------------------------------- #
+context "math()"
+snippet "([^\w\\])sM" "Sum with only lower limit" rA
+`!p snip.rv = match.group(1)`\sum_{$1} $0
+endsnippet
+
+context "math()"
+snippet "([^\w\\])smm" "Sum with upper and lower limit" rA
+`!p snip.rv = match.group(1)`\sum_{$1}^{$2} $0
+endsnippet
+
+snippet "([^\w\\])smf" "Sum from negative to positive infinity" rA
+`!p snip.rv = match.group(1)`\sum_{$1-\infty}^{\infty} $0
+endsnippet
+# --------------------------------------------- #
+# END SUMS
+
+# BEGIN LIMITS
+# --------------------------------------------- #
+context "math()"
+snippet "([^\w\\])lmm" "\limits{}{} with upper and lower limit" rA
+`!p snip.rv = match.group(1)`\limits_{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet "([^\w\\])lim" "\lim_{$1 \to $2}" rA
+`!p snip.rv = match.group(1)`\lim_{$1 \to $2} $0
+endsnippet
+
+snippet "([^\w\\])lmf" "Limit to infinity" rA
+`!p snip.rv = match.group(1)`\lim_{${1} \to \infty} $0
+endsnippet
+
+snippet "([^\w\\])slmf" "Limit superior to infinity" rA
+`!p snip.rv = match.group(1)`\limsup_{${1} \to \infty} $0
+endsnippet
+
+snippet "([^\w\\])lmz" "Limit to zero" rA
+`!p snip.rv = match.group(1)`\lim_{${1} \to 0} $0
+endsnippet
+# --------------------------------------------- #
+# END LIMITS
+
+
+# BEGIN STATIC TEXT
+# ------------------------------------- #
+context "math()"
+snippet and "static snippet: quad-spaced 'and' in equation" A
+\quad \text{and} \quad $0
+endsnippet
+
+snippet forall "static snippet: 'for all'  text in equation" A
+\text{ for all } $0
+endsnippet
+
+snippet forwh "static snippet: 'for which'  text in equation" A
+\text{ for which } $0
+endsnippet
+
+snippet forwhich "static snippet: 'for all'  text in equation" A
+\text{ for which } $0
+endsnippet
+
+context "math()"
+snippet else "\text{otherwise}" A
+\text{otherwise}
+endsnippet
+# ------------------------------------- #
+# END STATIC TEXT
+
+
+# BEGIN STATIC MATH SNIPPETS
+# ------------------------------------- #
+snippet "([\W_])inff" "\infty" rA
+`!p snip.rv = match.group(1)`\infty
+endsnippet
+
+context "math()"
+snippet "([\W_])intf" "Integral from negative to positive infinity" rA
+`!p snip.rv = match.group(1)`\int_{-\infty}^{\infty} 
+endsnippet
+
+context "math()"
+snippet >> "\implies" Ai
+\implies 
+endsnippet
+
+snippet lra "\leftrightarrow" A
+\leftrightarrow 
+endsnippet
+
+context "math()"
+snippet "([^a-zA-Z0-9\\])df" "\diff" rA
+`!p snip.rv = match.group(1)`\diff
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])gd" "\grad" r
+`!p snip.rv = match.group(1)`\grad 
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])lap" "\laplacian" r
+`!p snip.rv = match.group(1)`\laplacian 
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])cll" "\curl" rA
+`!p snip.rv = match.group(1)`\curl 
+endsnippet
+
+snippet "([lcvd])dd" "(lcvd)dots (various dots commands in one regex)" rA
+\\`!p snip.rv = match.group(1)`dots
+endsnippet
+
+snippet ,. "\cdot" iA
+\cdot 
+endsnippet
+
+snippet xx "\cross" A
+\times 
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])pt" "\propto" rA
+`!p snip.rv = match.group(1)`\propto 
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])px" "\approx" rA
+`!p snip.rv = match.group(1)`\approx 
+endsnippet
+
+snippet prp "\perp" A
+\perp 
+endsnippet
+
+snippet pll "\parallel" A
+\parallel 
+endsnippet
+
+snippet sbb "\subset" A
+\subset 
+endsnippet
+
+snippet stm "\setminus" A
+\setminus 
+endsnippet
+
+snippet mps "\mapsto" A
+\mapsto 
+endsnippet
+
+snippet "([^a-zA-Z0-9\\])eqq" "\equiv" rA
+`!p snip.rv = match.group(1)`\equiv 
+endsnippet
+
+# ------------------------------------- #
+# END STATIC MATH SNIPPETS
+
+
+# BEGIN MISC
+# --------------------------------------------- #
+snippet "(^|[^a-zA-Z])sgg" "\subgrad{} (for cleaner gradient, mostly for ML backprop)" rA
+`!p snip.rv = match.group(1)`\subgrad{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])spp" "\supgrad{} (for cleaner gradient, mostly for ML backprop)" rA
+`!p snip.rv = match.group(1)`\supgrad{${1:${VISUAL:}}}{$2}$0
+endsnippet
+
+# turns b| into \big |
+# turns B| into \Big |
+snippet "([\W])([bB])\|" "(bB)ig |_{evaluation}" rA
+`!p snip.rv = match.group(1)`\\`!p snip.rv = match.group(2)`ig|_{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet qm "\questionmath{} (for coloring math commands to distinguish from colored question text)"
+\questionmath{${1:${VISUAL:}}}$0
+endsnippet
+
+snippet ubb "The \underbrace command" A
+\underbrace{${1:${VISUAL:}}}_{$2} $0
+endsnippet
+# --------------------------------------------- #
+# END MISC
