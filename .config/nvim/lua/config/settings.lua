@@ -46,6 +46,7 @@ vim.opt.shell = "/opt/homebrew/bin/zsh"
 api.nvim_create_user_command("FixWhitespace", [[%s/\s\+$//e]], {})
 vim.opt.conceallevel = 2
 vim.cmd.colorscheme("gruvbox") -- 
+
 -- Other settings
 vim.g.neoformat_try_formatprg = 1
 vim.g.loaded_ruby_provider = 0
