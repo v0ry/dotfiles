@@ -1,4 +1,5 @@
 local keyset = vim.keymap.set
+
 keyset("i", "jk", "<esc>")
 
 -- Movements

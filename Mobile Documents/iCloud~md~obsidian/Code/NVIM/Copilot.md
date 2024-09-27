@@ -1,3 +1,5 @@
+```
+-- Date Edited 20240926
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
@@ -23,7 +25,7 @@ return {
 		},
 	    },
 	    suggestion = {
-		enabled = true,     
+		enabled = true,
 		auto_trigger = true,
 		debounce = 75,
 		keymap = {
@@ -52,3 +54,5 @@ return {
 	})
   end, -- Lua requires config = function() ... end,
 }
+
+```

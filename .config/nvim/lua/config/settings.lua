@@ -1,4 +1,3 @@
-
 -- global funcs
 
 -- global options
@@ -16,7 +15,7 @@ vim.opt.foldtext = ''
 vim.opt.scrolloff = 8 -- number of lines to always go down
 vim.opt.signcolumn = "number"
 vim.opt.colorcolumn = "99999" -- fix columns
--- vim.opt.mouse = "a" -- set mouse to be on
+vim.opt.mouse = "a" -- set mouse to be on
 vim.opt.shortmess:append("c") -- no ins-completion messages
 vim.opt.cmdheight = 0 -- status line smaller
 vim.opt.laststatus = 3
@@ -41,7 +40,7 @@ vim.opt.virtualedit = "all"
 vim.opt.shell = "/opt/homebrew/bin/zsh"
 vim.api.nvim_create_user_command("FixWhitespace", [[%s/\s\+$//e]], {})
 vim.opt.conceallevel = 2
-vim.cmd.colorscheme("gruvbox") --
+vim.cmd.colorscheme("gruvbox") --use () to select form an array 
 
 -- Other settings
 vim.g.neoformat_try_formatprg = 1
@@ -51,4 +50,4 @@ vim.g.netrw_banner = 0 -- no banner for netrw
 vim.g.netrw_browse_split = 4 -- open in split
 vim.g.netrw_liststyle = 3 -- tree style
 vim.g.netrw_winsize = -28 -- size of window
-vim.g.clipbard = {"unnamedplus", "unnamed"} -- system clipboard == vim clipboard and vice versa
+vim.opt.clipboard = { "unnamed", "unnamedplus" } -- vim.api.nvim_set_option("clipboard", "unnamed")

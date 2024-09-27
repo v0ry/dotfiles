@@ -3,7 +3,7 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+if [ "$TMUX" = "" ]; then tmux; fi
 # use yellow for directories
 export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
@@ -143,7 +143,7 @@ alias gp='git push'
 # Pretty print the PATH
 alias path='echo; tr ":" "\n" <<< "$PATH"; echo;'
 
-# Aliases For Editing Latex 
+# Aliases For Editing Latex
 alias ltxtemp='cp -R ~/.config/latex/templates/'
 
 alias config='/usr/bin/git --git-dir=/Users/koka/.cfg/.git/ --work-tree=/Users/koka'

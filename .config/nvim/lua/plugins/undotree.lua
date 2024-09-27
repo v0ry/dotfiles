@@ -1,6 +1,5 @@
 return {
 	"mbbill/undotree", 
-	lazy = true,
+	lazy = false, -- Will automatically load when key triggered
 	cmd = "UndotreeToggle",
-	keys = {"n", "<leader>u", ":UndotreeToggle<CR>"},
 }
