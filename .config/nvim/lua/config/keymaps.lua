@@ -1,7 +1,6 @@
 local keyset = vim.keymap.set
 local M = {} 
 
-keyset("i", "jk", "<esc>")
 
 keyset("v", "J", ":m '>+1<cr>gv=gv")
 keyset("v", "K", ":m '<-2<cr>gv=gv")
@@ -36,15 +35,6 @@ keyset("n", "<leader>p", '"+gp')
 keyset("n", "<leader>z", "[s1z=``") -- Spell Check
 keyset("n", "<leader>sr", ":%s/<<C-r><C-w>>//g<Left><Left>")
 
--- Glolbal Keymap specific plugins
---local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
---keyset({"n", "x", "o"}, ";", ts_repeat_move.repeat_last_move_next)
---keyset({"n", "x", "o"}, ",", ts_repeat_move.repeat_last_move_previous)
---keyset({"n", "x", "o"}, "f", ts_repeat_move.builtin_f)
---keyset({"n", "x", "o"}, "F", ts_repeat_move.builtin_F)
---keyset({"n", "x", "o"}, "t", ts_repeat_move.builtin_t)
---keyset({"n", "x", "o"}, "T", ts_repeat_move.builtin_T)
-
 -- Telescope & grepper
 keyset("n", "<leader><leader>f", ":Telescope git_files<cr>")
 keyset("n", "<leader>fl", ":Telescope live_grep<cr>")
@@ -61,9 +51,4 @@ keyset("n", "<leader>*", ":Grepper -tool rg -cword -noprompt<cr>")
 keyset("n", "gs", "<Plug>(GrepperOperator)")
 keyset("x", "gs", "<Plug>(GrepperOperator)")
 
--- Netrw 
-keyset("n", "<leader>dd", "<cmd>Lexplore %:p:h<cr>")
-keyset("n", "<leader>da", "<cmd>Lexplore<cr>")
-
--- LuaSnip
 

@@ -13,14 +13,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
+
 vim.opt.rtp:prepend(lazypath)
-vim.api.nvim_set_keymap('n', '<C-v>', ':echo "Ctrl-V pressed"<CR>', { noremap = true, silent = true })
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = ","
-vim.g.maplocalleader = "\\"
+-- vim.g.maplocalleader = "\\" -- Don't even know what this is for
 
 -- Setup lazy.nvim
 require("lazy").setup({
