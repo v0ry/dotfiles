@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "yt-dlp -f \"bestaudio[ext=m4a]\",\"bestaudio[ext=webm]\" -x [{cursor}]",
+    "uid" : "1A24AD8C-EB5F-4B60-BCEE-F07DA761D140",
+    "name" : "Yt-dlp best audio",
+    "keyword" : "ytdlp"
+  }
+}

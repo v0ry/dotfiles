@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>backup_destination</key>
+	<string>~/Library/CloudStorage/OneDrive-Persönlich/Bak/Obsidian</string>
+	<key>link_type_to_copy</key>
+	<string>Wikilink</string>
+	<key>new_note_location</key>
+	<string>/📥 Inbox/Quicknote</string>
+	<key>ocr_screenshot_file</key>
+	<string>~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zetteln/Metadata/img/ORC Screenshots.md</string>
+	<key>open_after_appending</key>
+	<false/>
+	<key>remove_emojis</key>
+	<true/>
+	<key>scratchpad_note_path</key>
+	<string>📥 Inbox/Quicknote/Alfred QuickNotes</string>
+	<key>screenshot_path</key>
+	<string>~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zetteln/Metadata/img</string>
+	<key>vault_path</key>
+	<string>~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zetteln</string>
+</dict>
+</plist>
