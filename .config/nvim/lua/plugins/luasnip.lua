@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     config = function()
       local cmp = require("cmp")
 
@@ -16,10 +17,8 @@ return {
           documentation = cmp.config.window.bordered()
         },
         mapping = {
-          ["<Up>"] = cmp.mapping.select_prev_item(),
-          ["<Down>"] = cmp.mapping.select_next_item(),
-          ["<Left>"] = cmp.mapping.select_prev_item(),
-          ["<Right>"] = cmp.mapping.select_next_item(),
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(),
@@ -32,12 +31,13 @@ return {
         },
         -- ordered by priority
         sources = cmp.config.sources({
-          { name = "luasnip" }, -- including Latex
-          { name = "nvim_lsp",               keyword_length = 1 },
+          { name = "luasnip", keyword_length =3  }, -- including Latex
           { name = "nvim_lsp_signature_help" },
+          { name = "nvim_lsp",               keyword_length = 1 },
           { name = "path" },
           { name = "nvim_lua" },
-          { name = 'buffer' },
+        }, {
+          { name = 'buffer', keyword_length = 4 },
         })
       })
 
@@ -57,12 +57,16 @@ return {
     branch = "fix/lazy-loading",
     -- vimtex isn't required if using treesitter
     dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    ft = { "tex", "latex" },
     config = function()
-      require'luasnip-latex-snippets'.setup()
-      -- or setup({ use_treesitter = true })
-      require("luasnip").config.setup { enable_autosnippets = true }
-        end,
-      },
+      require'luasnip-latex-snippets'.setup({
+        use_treesitter = true
+      })
+      require("luasnip").config.setup { 
+        enable_autosnippets = true 
+      }
+    end,
+  },
   {
     "hrsh7th/cmp-buffer", 
     "hrsh7th/cmp-cmdline",
@@ -70,17 +74,20 @@ return {
     "hrsh7th/cmp-nvim-lsp", 
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-path",
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig'
   },
   {
   "L3MON4D3/LuaSnip",
-  lazy = false,
+  lazy = true, -- Only load when a LuaSnip function is called
   dependencies = { 
       { "saadparwaiz1/cmp_luasnip" },
       { "iurimateus/luasnip-latex-snippets.nvim" },
   },
   keys = {
     {
-      "<C-l>", -- ctrl + l
+      "<Tab>", -- ctrl + l
       function() require("luasnip").jump(1) end,
       desc = "Jump forward a snippet placement",
       mode = "i",
@@ -88,7 +95,7 @@ return {
       silent = true,
     },
     {
-      "<C-h>",
+      "<S-Tab>",
       function() require("luasnip").jump(-1) end,
       desc = "Jump backward a snippet placement",
       mode = "i",
@@ -97,9 +104,9 @@ return {
     }
     },
     config = function()
-      -- require("luasnip.loaders.from_lua").load({ paths = "~/.snippets" })
-      require("luasnip.loaders.from_vscode").lazy_load({
-          path = "/Users/koka/.local/share/nvim/lazy/luasnip-latex-snippets.nvim/lua/luasnip-latex-snippets/"  
+    require("luasnip.loaders.from_lua").load({ paths = "~/.snippets/" })
+       require("luasnip.loaders.from_vscode").lazy_load({
+          path = "~/.local/share/nvim/lazy/luasnip-latex-snippets.nvim/lua/luasnip-latex-snippets/"  
         })
     end
   }
