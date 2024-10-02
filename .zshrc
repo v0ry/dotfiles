@@ -4,6 +4,7 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 if [ "$TMUX" = "" ]; then tmux; fi
+
 # use yellow for directories
 export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
@@ -101,49 +102,3 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
-# quickly edit and source .zshrc
-alias vz="nvim ~/.zshrc"
-alias sz="source ~/.zshrc; echo '~/.zshrc sourced'"
-
-# change directory
-alias cd=' cd'
-alias ..=' cd ..; ls'
-alias ...=' cd ..; cd ..; ls'
-alias ....=' cd ..; cd ..; cd ..; ls'
-alias cd..='..'
-alias cd...='...'
-alias cd....='....'
-
-# Config Files and Neovim
-alias vi='nvim'
-alias conf='~/.config'
-alias clz='nvim ~/.config/nvim/lua/plugins'
-alias plz='nvim ~/.config/nvim/lua/config'
-
-# change prompt
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-zstyle ':vcs_info:git:*' formats '%b '
-
-setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
-
-# Alias
-alias c='clear'
-alias ll='ls -lha'
-alias l1='ls -1' # list one file per line
-alias g='git'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-
-
-# Pretty print the PATH
-alias path='echo; tr ":" "\n" <<< "$PATH"; echo;'
-
-# Aliases For Editing Latex
-alias ltxtemp='cp -R ~/.config/latex/templates/'
-
-alias config='/usr/bin/git --git-dir=/Users/koka/.cfg/.git/ --work-tree=/Users/koka'
