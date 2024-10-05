@@ -11,6 +11,7 @@
 		<string>/System/Library/CoreServices/Applications</string>
 		<string>/System/Library/PreferencePanes</string>
 		<string>/usr/local/Cellar</string>
+		<string>~/.config</string>
 		<string>~/Library/Caches/Metadata</string>
 		<string>~/Library/CloudStorage</string>
 		<string>~/Library/Mobile Documents</string>

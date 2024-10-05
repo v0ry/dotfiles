@@ -66,40 +66,10 @@ return {
   --     }
   --   end
   -- },
-    {
-    "iurimateus/luasnip-latex-snippets.nvim",
-    -- vimtex isn't required if using treesitter
-    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = function()
-      require'luasnip-latex-snippets'.setup()
-      -- or setup({ use_treesitter = true })
-      require("luasnip").config.setup { enable_autosnippets = true }
-    end
-  },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-cmdline" },
   { "hrsh7th/cmp-nvim-lua" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "hrsh7th/cmp-path" },
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()      
-      require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer" },
-        }
-    end, 
-  },
-  { 
-    "neovim/nvim-lspconfig", 
-    config = function()
-      require("lspconfig").texlab.setup({})
-    end, 
-  }, 
 }
