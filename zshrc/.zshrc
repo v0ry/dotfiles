@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set the ZSH theme
-ZSH_THEME="macovsky-ruby"
+ZSH_THEME="gozilla" # set by `omz`
 
 # Plugins to load
 plugins=(
