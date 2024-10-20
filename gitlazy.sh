@@ -2,6 +2,8 @@
 
 set -e
 
+cd /Users/koka/.dotfiles || { echo "Failed to change repo directorey"; exit 1; }
+
 if [ $# -eq 0 ]; then
     cat <<EOF
     usage:  gitlazy [log message]
