@@ -30,7 +30,8 @@ if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
-
+# For crontab -e to work
+export VISUAL=nvim
 
 
 # SDKMAN initialization (must be at the end of the file)
