@@ -1,0 +1,75 @@
+Swedish Phonetic Alphabet
+A Adam	
+B Bertil	
+C Cesar	
+D David	
+E Erik	
+F Filip	
+G Gustav	
+H Helge	
+I Ivar	
+J Johan	
+K Kalle	
+L Ludvig	
+M Martin	
+N Niklas	
+O Olof	
+P Petter	
+Q Qvintus	
+R Rudolf	
+S Sigurd	
+T Tore	
+U Urban	
+V Viktor	
+W Wilhelm	
+X Xerxes	
+Y Yngve	
+Z Zäta	
+Å Åke	
+Ä Ärlig	
+Ö Östen
+0 Nolla	
+1 Ett	
+2 Tvåa	
+3 Trea	
+4 Fyra	
+5 Femma	
+6 Sexa	
+7 Sju	
+8 Åtta	
+9 Nia
+    Space
+.   Period
+,   Comma
+;   Semicolon
+:   Colon
+?   Question Mark
+!   Exclamation Mark
+@   At Sign
+&   Ampersand
+"   Double Quotation Mark
+'   Apostrophe
+-   Dash
+/   Forward Slash
+\   Backslash
+(   Left Round Bracket / Parenthesis
+)   Right Round Bracket / Parenthesis
+[   Left Square Bracket
+]   Right Square Bracket
+{   Left Curly Bracket
+}   Right Curly Bracket
+<   Left Angle Bracket / Less-Than Sign
+>   Right Angle Bracket / Greater-Than Sign
+|   Vertical Bar / Pipe
+°   Degree Symbol
+*   Asterisk / Star
++   Plus Sign
+=   Equal Sign
+#   Number Sign / Pound Sign / Hash
+§   Section Sign
+$   Dollar Sign
+€   Euro Sign
+~   Tilde
+_   Underscore
+%   Percent Sign
+^   Caret

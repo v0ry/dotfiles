@@ -20,6 +20,8 @@
 		<key>string</key>
 		<string></string>
 	</dict>
+	<key>showWithTab</key>
+	<true/>
 	<key>sortByUsage</key>
 	<true/>
 </dict>

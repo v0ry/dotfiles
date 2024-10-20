@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "mkdir -p {cursor}\/{Notes,Resource,Assignments,Projects)\n",
+    "uid" : "53604AA1-2EC1-42BF-9F08-6B7D1B41EF3E",
+    "name" : "Project File Structure",
+    "keyword" : "project"
+  }
+}

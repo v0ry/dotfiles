@@ -6,6 +6,10 @@
 	<false/>
 	<key>convertImagesToPNG</key>
 	<true/>
+	<key>fastAppend</key>
+	<true/>
+	<key>fastAppendBackToClipboard</key>
+	<true/>
 	<key>hotkey</key>
 	<dict>
 		<key>key</key>
@@ -29,6 +33,8 @@
 	<integer>2</integer>
 	<key>persistForFiles</key>
 	<integer>1</integer>
+	<key>persistForImages</key>
+	<integer>2</integer>
 	<key>snippetsAtTop</key>
 	<false/>
 </dict>

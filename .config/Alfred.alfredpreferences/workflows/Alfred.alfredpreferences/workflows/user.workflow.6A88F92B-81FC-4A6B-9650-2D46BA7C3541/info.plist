@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.samedwardes.alfred.toggle-stage-manager</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8C3B5AC8-7DB7-443F-A86D-8CC1115A5813</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Sam Edwardes</string>
+	<key>description</key>
+	<string>Toggle Mac OS Stage Manager on and off</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Toggle Stage Manager</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>stage</string>
+				<key>subtext</key>
+				<string>Toggle Stage Manager on and off</string>
+				<key>text</key>
+				<string>Toggle Stage Manager</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>STATE=$(defaults read com.apple.WindowManager GloballyEnabled 2&gt; /dev/null)
+[[ ${STATE} = 0 || -z ${STATE} ]] &amp;&amp; ENABLE="true" || ENABLE="false"
+defaults write com.apple.WindowManager GloballyEnabled -bool ${ENABLE}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>8C3B5AC8-7DB7-443F-A86D-8CC1115A5813</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Toggle Stage Manager
+
+Toggle Mac OS [Stage Manager](https://support.apple.com/en-us/HT213315) on and off.
+
+## Usage
+
+Trigger the Workflow by typing `stage`. Press enter to toggle Stage Manager on and off.
+
+![Screenshot of using toggle stage manager](https://github.com/SamEdwardes/alfred-workflow-toggle-stage-manager/blob/main/Workflow/images/usage-screenshot.png?raw=true)
+
+Alternatively, you can trigger the workflow using the **Ctrl-Opt-S** hotkey.
+
+## Details
+
+Once triggered the Workflow will run the following script in bash:
+
+```bash
+STATE=$(defaults read com.apple.WindowManager GloballyEnabled 2&gt; /dev/null)
+[[ ${STATE} = 0 || -z ${STATE} ]] &amp;&amp; ENABLE="true" || ENABLE="false"
+defaults write com.apple.WindowManager GloballyEnabled -bool ${ENABLE}
+```
+
+## Credits
+
+Developed by Sam Edwardes. The original code snippet is taken from &lt;https://www.reddit.com/r/MacOSBeta/comments/w56e2l/i_made_a_shortcut_to_toggle_macos_venture_stage&gt;.
+
+## Changelog
+
+&lt;https://github.com/SamEdwardes/alfred-workflow-toggle-stage-manager/releases&gt;</string>
+	<key>uidata</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<dict>
+			<key>xpos</key>
+			<real>685</real>
+			<key>ypos</key>
+			<real>335</real>
+		</dict>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<dict>
+			<key>xpos</key>
+			<real>475</real>
+			<key>ypos</key>
+			<real>335</real>
+		</dict>
+		<key>8C3B5AC8-7DB7-443F-A86D-8CC1115A5813</key>
+		<dict>
+			<key>xpos</key>
+			<real>480</real>
+			<key>ypos</key>
+			<real>490</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.1.1</string>
+	<key>webaddress</key>
+	<string>https://github.com/SamEdwardes/alfred-workflow-toggle-stage-manager</string>
+</dict>
+</plist>

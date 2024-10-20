@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#include <stdio.h>\n#include <stdlib.h>\n#include <pthread.h>\n#include <unistd.h>\n#include <time.h>",
+    "uid" : "621248C1-4A17-40C8-A525-09C56E238E37",
+    "name" : "threads",
+    "keyword" : "include"
+  }
+}
