@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "#include <stdio.h>\n#include <stdlib.h>\n#include <pthread.h>\n#include <unistd.h>\n\nint main(int agrc, char* argv[]) \n{ \n    {cursor}\n    return 0;\n}\n\n",
-    "uid" : "D577F95B-EF86-49B3-9068-ACBF46CFF67D",
-    "name" : "Pthreads #include Template",
-    "keyword" : "ptemp"
-  }
-}
