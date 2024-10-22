@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "<pre style=\"display:flex; justify-content:center;\"><code class=\"language-c\" style=\"white-space: pre-wrap; j\">\n<code class=\"language-c\">\n{cursor}\n<\/code><\/code><\/pre>",
+    "uid" : "00F68772-9870-43F4-96AC-E4050496C46A",
+    "name" : "CodeBlock For Anki",
+    "keyword" : "Code"
+  }
+}
