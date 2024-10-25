@@ -170,6 +170,14 @@ return {
         clangd = {
           cmd = { 'clangd', '--offset-encoding=utf-16' }, -- Fix: Pass as a table, not a string
         },
+        -- NOTE:More feeatures with lsp than lint
+        svls = {
+          root_dir = function(fname)
+            return require('lspconfig.util').find_git_ancestor(fname)
+          end,
+          cmd = { 'svls' },
+          filetypes = { 'verilog', 'systemverilog' },
+        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
