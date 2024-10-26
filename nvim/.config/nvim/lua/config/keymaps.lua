@@ -24,7 +24,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- WhichKey
 vim.api.nvim_set_keymap('n', '<leader>cm', ':w<CR>:!clang % -g -Wall -o %:r && ./%:r<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>cb', ':w<CR>:!bear -- clang % -g -Wall -o %:r && ./%:r<CR>', { noremap = true, silent = true })
+
+-- For SystemVerilog
+vim.api.nvim_set_keymap('n', '<leader>ci', ':w<CR>:!iverilog -g2012 -o "%:r.vvp" "%:p" && vvp "%:r.vvp"<CR>', { noremap = true, silent = true })
+
+-- vim.api.nvim_set_keymap('n', '<leader>cb', ':w<CR>:!bear -- clang % -g -Wall -o %:r && ./%:r<CR>', { noremap = true, silent = true })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
