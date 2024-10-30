@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "\"Explain each line of the following SystemVerilog code and provide a broad, conceptual question about each line's purpose. Each question should be open-ended, such as 'How could you solve problem X?' or 'How might problem Y be addressed here?' Offer a clear, line-by-line explanation of the code, followed by a single question to promote reflection. Once I've had time to think and type an answer, please provide an improved solution if applicable. After reviewing, proceed with the next question, adapting based on my responses.\"\n\nAudience: Intermediate beginner\nObjective: Develop a deeper understanding and functional proficiency in SystemVerilog\nProgramming Language: SystemVerilog\nFlexibility: Adjust questions and responses based on my answers",
+    "uid" : "BCE474BA-7388-4D93-AB09-3F751EC5A192",
+    "name" : "Learning SystemVerilog Code Analysis And Question Building",
+    "keyword" : "sv"
+  }
+}

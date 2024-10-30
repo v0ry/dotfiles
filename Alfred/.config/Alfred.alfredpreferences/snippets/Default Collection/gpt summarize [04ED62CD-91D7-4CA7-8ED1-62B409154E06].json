@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "summarize output markdown use code block and add all important information with latex use $$$$ answer as short as possible minimum information principle ",
+    "uid" : "04ED62CD-91D7-4CA7-8ED1-62B409154E06",
+    "name" : "gpt summarize",
+    "keyword" : "sum"
+  }
+}

@@ -171,12 +171,16 @@ return {
           cmd = { 'clangd', '--offset-encoding=utf-16' }, -- Fix: Pass as a table, not a string
         },
         -- NOTE:More feeatures with lsp than lint
-        svls = {
-          root_dir = function(fname)
-            return require('lspconfig.util').find_git_ancestor(fname)
-          end,
-          cmd = { 'svls' },
-          filetypes = { 'verilog', 'systemverilog' },
+        -- svls = {
+        --   root_dir = function(fname)
+        --     return require('lspconfig.util').find_git_ancestor(fname)
+        --   end,
+        --   cmd = { 'svls' },
+        --   filetypes = { 'verilog', 'systemverilog' },
+        -- },
+        verible = {
+          cmd = { 'verible-verilog-ls', '--rules_config_search' },
+          filetypes = { 'verilog', 'systemverilog' }, -- Supported file types
         },
         -- gopls = {},
         -- pyright = {},
@@ -219,15 +223,15 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'html-lsp',
-        'emmet-ls',
+        -- 'html-lsp',
+        -- 'emmet-ls',
         'clangd',
         'bash-language-server',
-        'shellcheck',
-        'marksman',
+        -- 'shellcheck',
+        -- 'marksman',
         'yaml-language-server',
-        'prettierd',
-        'prettier',
+        -- 'prettierd',
+        -- 'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "I'll provide a chatGPT prompt. You'll ask questions to understand the audience and goals, then optimize the prompt for effectiveness and relevance using the principle of specificity.\n\nExplain Each line of code and formulate a question. \nDefinition of a good question: General, like How cold you solve problem x, or problem y. ",
+    "uid" : "7AE909D8-1900-4483-A2D4-8EC55175AC4C",
+    "name" : "chatgpt prompt improve",
+    "keyword" : ">gptimprove"
+  }
+}
