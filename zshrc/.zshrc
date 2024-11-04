@@ -17,8 +17,9 @@ plugins=(
 # Source oh-my-zsh
 source "$ZSH/oh-my-zsh.sh"
 
-# Source zsh-syntax-highlighting (must be after sourcing oh-my-zsh)
+# OH MY ZSH CUSTOMIZATION using hoembrw
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
 
 # Initialize rbenv (if you use it)
 if command -v rbenv >/dev/null 2>&1; then
