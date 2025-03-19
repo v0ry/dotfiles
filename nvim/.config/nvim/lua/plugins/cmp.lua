@@ -16,22 +16,20 @@ return {
           return 'make install_jsregexp'
         end)(),
         dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          -- LaTeX Snippets
+          -- 'iurimateus/luasnip-latex-snippets.nvim',
+          'lervag/vimtex', -- For LaTeX support
+          'iurimateus/luasnip-latex-snippets.nvim',
+          'evesdropper/luasnip-latex-snippets.nvim',
         },
+        config = function()
+          -- require('luasnip-latex-snippets').setup()
+          require('luasnip-latex-snippets').setup { use_treesitter = true } -- Option 2
+          -- require('luasnip-latex-snippets').setup()
+          require('luasnip').config.setup { enable_autosnippets = true }
+        end,
       },
       'saadparwaiz1/cmp_luasnip',
-
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
@@ -103,14 +101,14 @@ return {
         },
         -- Add YOUR personal sources here
         sources = {
-          {
-            name = 'lazydev',
-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-            group_index = 0,
-          },
+          { name = 'luasnip' },
+          -- {
+          --   name = 'lazydev',
+          --   -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+          --   group_index = 0,
+          -- },
           { name = 'buffer' },
           { name = 'nvim_lsp' },
-          { name = 'luasnip' },
           { name = 'path' },
           { name = 'copilot' },
         },
